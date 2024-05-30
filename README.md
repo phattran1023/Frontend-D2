@@ -15,9 +15,12 @@ Setup policy for new component
 _Example component's name is Document_
 
 ```sh
-Step 1: Create file document.policy-collection.ts (see item.policy-collection.ts)
-Step 2: Define policyCollectionKey (note: this key will use to check policy, see item.policy-collection.ts)
-Step 3: Register DocumentPolicyCollection into PolicyModule (row 20, policy.module.ts)
+Step 1: Create file document.policy-collection.ts 
+(see item.policy-collection.ts)
+Step 2: Define policyCollectionKey 
+(note: this key will use to check policy, see item.policy-collection.ts)
+Step 3: Register DocumentPolicyCollection into PolicyModule 
+(row 20, policy.module.ts)
 ```
 
 How to use?
@@ -32,7 +35,8 @@ Add appPolicy directive  into button to check
 ```sh
 Step 1: Import PolicyModule to component
 Step 2: Add appPolicy [policy]="policyCollectionKey::functionName" into element
-Example <button type="button" appPolicy [policy]="doc::create"> Create </button> ("doc::create" -> policyCollectionKey is "doc", functionName is "create")
+Example <button type="button" appPolicy [policy]="doc::create"> Create </button> 
+("doc::create" -> policyCollectionKey is "doc", functionName is "create")
 (See item.policy-collection.ts)
 ```
 
