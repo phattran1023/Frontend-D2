@@ -1,0 +1,36 @@
+<div class="vertical-navigation-wrapper">
+
+    <!-- Content -->
+    <div
+        class="vertical-navigation-content"
+        #navigationContent>
+  
+        <!-- Items -->
+        <ng-container *ngFor="let item of navigation; trackBy: trackByFn">
+  
+            <!-- Skip the hidden items -->
+            <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+  
+                <!-- Basic -->
+                <ng-container *ngIf="item.type === 'basic'">
+                    <vertical-navigation-basic-item
+                        [item]="item"
+                        [name]="name"></vertical-navigation-basic-item>
+                </ng-container>
+  
+                <!-- Collapsable -->
+                <ng-container *ngIf="item.type === 'collapsable'">
+                    <vertical-navigation-collapsable-item
+                        [item]="item"
+                        [name]="name"
+                        [autoCollapse]="autoCollapse"></vertical-navigation-collapsable-item>
+                </ng-container>
+  
+            </ng-container>
+  
+        </ng-container>
+  
+    </div>
+  
+  </div>
+  
