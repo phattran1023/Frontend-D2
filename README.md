@@ -38,9 +38,11 @@ Add appPolicy directive  into button to check
 Step 1: Import PolicyModule to component
 
 Step 2: Add appPolicy [policy]="policyCollectionKey::functionName" into element
+
 Example <button type="button" appPolicy [policy]="doc::create"> Create </button> 
+
 ("doc::create" -> policyCollectionKey is "doc", functionName is "create")
-(See item.policy-collection.ts)
+(See item.component.ts)
 ```
 
 _JS using_
