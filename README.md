@@ -12,6 +12,7 @@ npm start
 
 ## Policy
 Setup policy for new component
+
 _Example component's name is Document_
 
 ```sh
