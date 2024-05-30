@@ -1,6 +1,7 @@
 
 ## Installation
 Dillinger requires [Node.js](https://nodejs.org/) v18+ to run.
+
 Install the dependencies and devDependencies and start the server.
 
 ```sh
@@ -20,7 +21,9 @@ Step 3: Register DocumentPolicyCollection into PolicyModule (row 20, policy.modu
 ```
 
 How to use?
+
 _HTML using_
+
 Example we have this button and wanna check permission of user to SHOW or HIDDEN
 ```sh
 <button type="button"> Create </button>
@@ -42,6 +45,7 @@ Example: this._policyService.can("policyCollectionKey::functionName")
 
 ## Routing
 _See app.routes.ts_
+
 If you wanna check AuthGuard, you have to add canActivate, example:
 ```sh
 {
@@ -53,5 +57,7 @@ If you wanna check AuthGuard, you have to add canActivate, example:
 
 ## Tailwind 
 Link docs: [Tailwind](https://tailwindcss.com/docs/font-family)
+
 Config css class to using likely font-size, color ...
+
 Config in file tailwind.config.js
