@@ -65,6 +65,30 @@ If you wanna check AuthGuard, you have to add canActivate, example:
 }
 ```
 
+If you wanna check policy for route, you have to add PolicyGuard to canActivate
+```sh
+{
+    path: 'xxx',
+    component: xxxComponent,
+    canActivate: [PolicyGuard],
+    data: {
+        policy: 'policyCollectionKey::functionName'
+    }
+}
+```
+Example:
+
+```sh
+{
+    path: 'item',
+    component: ItemComponent,
+    canActivate: [PolicyGuard],
+    data: {
+        policy: 'item::read'
+    }
+}
+```
+
 ## Tailwind 
 Link docs: [Tailwind](https://tailwindcss.com/docs/font-family)
 
