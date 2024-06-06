@@ -7,7 +7,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideToastr } from 'ngx-toastr';
 import { routes } from './app.routes';
 import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor';
-import { PolicyModule } from './core/policy/policy.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -38,6 +37,5 @@ export const appConfig: ApplicationConfig = {
         monthYearA11yLabel: 'MMMM YYYY',
       },
     }),
-    importProvidersFrom(PolicyModule.forRoot())
   ],
 };

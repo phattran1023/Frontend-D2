@@ -4,14 +4,17 @@ import { ItemModel } from "../../shared/models/item.model";
 import { ItemApiService } from "../../shared/services/item-api.service";
 import { Subject, takeUntil } from "rxjs";
 import {MatTableModule} from '@angular/material/table';
-import { PolicyModule } from "../../core/policy/policy.module";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ItemCreateComponent } from "./item-create/item-create.component";
+import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
+import { ItemUpdateComponent } from "./item-update/item-update.component";
+import { PermissionDirective } from "../../core/directives/permission.directive";
 
 @Component({
     selector: 'app-item',
     standalone: true,
-    imports: [MatButtonModule, MatTableModule, PolicyModule, MatDialogModule],
+    imports: [MatButtonModule, MatTableModule, MatDialogModule, MatIconModule, MatMenuModule, PermissionDirective],
     templateUrl: './item.component.html',
     styleUrl: './item.component.scss'
 })
@@ -47,6 +50,19 @@ export class ItemComponent implements OnInit {
         this._dialog.open(ItemCreateComponent, {
             width: '400px',
             disableClose: true
+        })
+        .afterClosed().subscribe(res => {
+            console.log(res)
+        })
+    }
+
+    update(item: ItemModel) {
+        this._dialog.open(ItemUpdateComponent, {
+            width: '400px',
+            disableClose: true,
+            data: {
+                item
+            }
         })
         .afterClosed().subscribe(res => {
             console.log(res)

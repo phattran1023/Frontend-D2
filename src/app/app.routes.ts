@@ -9,7 +9,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { LogoutComponent } from './modules/auth/logout/logout.component';
 import { UserResolver } from './shared/resolvers/user.resolver';
 import { ItemComponent } from './modules/item/item.component';
-import { PolicyGuard } from './core/policy/policy.guard';
+import { PermissionGuard } from './core/guards/permission.guard';
 
 export const routes: Routes = [
     {
@@ -51,9 +51,9 @@ export const routes: Routes = [
             {
                 path: 'item',
                 component: ItemComponent,
-                canActivate: [PolicyGuard],
+                canActivate: [PermissionGuard],
                 data: {
-                    policy: 'item::read'
+                    permission: 'item::read'
                 }
             }
         ]

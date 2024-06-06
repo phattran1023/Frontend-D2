@@ -26,13 +26,4 @@ export class AuthApiService {
     getUserProfile(): Observable<UserModel> {
         return this.apiService.get(AuthApiService.USER_PROFILE).pipe(map(res => UserModel.fromJson(res)));
     }
-
-    getUserPermission(): Observable<string[]> {
-        return of([
-            'item::read',
-            'item::create',
-            'item::update',
-            'item::delete'
-        ]);
-    }
 }

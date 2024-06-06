@@ -1,11 +1,13 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import moment, { Moment } from "moment";
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ItemModel } from "../../../shared/models/item.model";
+import { ValidationErrorPipe } from "../../../core/pipe/validation-error.pipe";
 
 
 export interface IFormGroup {
@@ -20,15 +22,23 @@ export interface IFormGroup {
     templateUrl: './item-form.component.html',
     styleUrl: './item-form.component.scss',
     standalone: true,
-    imports: [MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CommonModule, MatDatepickerModule],
+    imports: [MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CommonModule, 
+        MatDatepickerModule, ValidationErrorPipe],
 })
-export class ItemFormComponent {
+export class ItemFormComponent implements OnChanges {
+    @Input() item: ItemModel;
     form: FormGroup<IFormGroup>;
 
     constructor(
         private _formBuilder: FormBuilder,
     ) {
         this.form = this.createForm();
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (this.item) {
+            this.form.patchValue(this.item)
+        }
     }
 
     createForm(): FormGroup<IFormGroup> {

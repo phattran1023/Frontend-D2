@@ -7,7 +7,7 @@ import { NavigationService } from "./vertical-navigation/vertical-navigation.ser
 import { NavigationItem } from "./vertical-navigation/vertical-navigation.types";
 import { UserModel } from "../../shared/models/user.model";
 import {MatMenuModule} from '@angular/material/menu';
-import { PolicyService } from "../../core/policy/policy.service";
+import { PermissionService } from "../../core/services/permission.service";
 
 @Component({
     selector: 'app-layout',
@@ -23,11 +23,8 @@ export class LayoutComponent implements OnInit {
     constructor(
         private _activatedRoute: ActivatedRoute, 
         private _navigationService: NavigationService,
-        private _policyService: PolicyService
-    ) {
-        
-
-    }
+        private _permissionService: PermissionService
+    ) {}
 
     ngOnInit(): void {
         this._activatedRoute.data.subscribe(data => {
@@ -65,13 +62,19 @@ export class LayoutComponent implements OnInit {
                 type: "collapsable",
                 icon: "analytic",
                 isSvgIcon: true,
-                hidden: (item) => !item.children.filter(val => !val.hidden || !val.hidden(val)).length,
+                hidden: (item) => !item.children.filter(val => !val.hidden || !val.hidden(val)).length, // Nếu những item trong children đều ẩn hết thì sẽ ẩn luôn item này
                 children: [{
                     id: 'item',
                     title: "Item",
                     type: 'basic',
                     link: "/item",
-                    hidden: () => !this._policyService.can('item::read')
+                    hidden: () => !this._permissionService.can('item::read'), // Kiểm tra permission của user để ẩn 
+                }, {
+                    id: 'doc',
+                    title: "Document",
+                    type: 'basic',
+                    link: "/doc",
+                    // hidden: () => !this._permissionService.can('doc::read')
                 }],
             },
         ]

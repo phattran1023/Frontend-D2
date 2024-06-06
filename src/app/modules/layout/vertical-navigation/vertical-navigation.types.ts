@@ -1,19 +1,15 @@
-// import { IsActiveMatchOptions } from '@angular/router';
-export type NavigationItemTitle = string | { text:string,disableTransform?:boolean }
 export interface NavigationItem {
   id?: string;
-  title?: NavigationItemTitle;
+  title?: string;
   subtitle?: string;
-  type: 'basic' | 'collapsable';
-  hidden?: (item: NavigationItem) => boolean;
+  type: 'basic' | 'collapsable'; // Nếu type = 'collapsable' thì sẽ group những item trong children 
+  hidden?: (item: NavigationItem) => boolean; 
   active?: boolean;
   disabled?: boolean;
   tooltip?: string;
   link?: string;
   externalLink?: boolean;
   target?: '_blank' | '_self' | '_parent' | '_top' | string;
-  exactMatch?: boolean;
-  // isActiveMatchOptions?: IsActiveMatchOptions;
   function?: (item: NavigationItem) => void;
   classes?: {
     title?: string;
@@ -22,7 +18,7 @@ export interface NavigationItem {
     wrapper?: string;
   };
   icon?: string;
-  isSvgIcon?: boolean;
+  isSvgIcon?: boolean; // Nếu sử dụng icon là svgIcon thì set isSvgIcon = true 
   badge?: {
     title?: string;
     classes?: string;

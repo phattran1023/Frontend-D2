@@ -305,7 +305,7 @@ export class VerticalNavigationCollapsableItemComponent implements OnInit, OnDes
                 }
             }
             // Check if the child has a link and is active  
-            if ( child.link && this._router.isActive(child.link, child.exactMatch || false) )
+            if ( child.link && this._router.isActive(child.link, {paths: 'exact', queryParams: 'exact', fragment: 'ignored', matrixParams: 'ignored'}) )
             {
                 return true;
             }

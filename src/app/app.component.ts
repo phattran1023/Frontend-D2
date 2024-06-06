@@ -5,7 +5,6 @@ import { MESSAGE_TYPE } from './core/models/message.model';
 import { GlobalService } from './core/services/global.service';
 import { CommonModule } from '@angular/common';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { PolicyModule } from './core/policy/policy.module';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SVG_ICONS } from './core/data/custom-svg-icon.data';

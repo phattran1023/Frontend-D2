@@ -20,6 +20,7 @@ export class GlobalService {
         afterNextRender(() => {
             this.storage.add(AppConstant.GLOBAL_STORAGE.TOKEN, this._localStorageService.get(AppConstant.LOCAL_STORAGE_KEYS.TOKEN));
             this.storage.add(AppConstant.GLOBAL_STORAGE.LOGIN_STATUS, this._localStorageService.get(AppConstant.LOCAL_STORAGE_KEYS.LOGIN_STATUS));    
+            this.storage.add(AppConstant.GLOBAL_STORAGE.USER, null);    
         });
     }
 }

@@ -1,8 +1,7 @@
 <div class="flex items-center place-content-between mb-4">
     <div class="text-large font-bold">Items</div>
     <div class="flex items-center gap-4">
-      <button type="button" mat-button  appPolicy [policy]="'item::download'">Download</button>
-      <button type="button" mat-flat-button color="primary" appPolicy [policy]="'item::create'"
+      <button type="button" mat-flat-button color="primary" appPermission [permission]="'item::create'"
       (click)="create()">Create New Item</button>
     </div>
 </div>

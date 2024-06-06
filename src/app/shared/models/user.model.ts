@@ -26,9 +26,19 @@ export class UserModel extends BaseModel {
     @Expose()
     dob!: Date; 
 
+    // Note: Muốn sử dụng @Type thì phải import 'reflect-metadata';
     @Expose()
     @Type(() => UserProfileModel)
     profile: UserProfileModel;
+
+    @Expose()
+    @Default([
+        'item::read',
+        'item::create',
+        'item::update',
+        'item::delete'
+    ])
+    permissions: string[];
 
     @Expose()
     get name(): string {

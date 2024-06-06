@@ -17,15 +17,18 @@ export const PolicyGuard: CanActivateFn = (
     const authApiService = inject(AuthApiService)
 
     return new Observable(observer => {
-        authApiService.getUserPermission().subscribe((data) => {
-            PolicyService.policies = data;
-            if (policyService.can(route.data['policy'])) {
-                observer.next(true);
-                observer.complete();
-            } else {
-                observer.next(router.createUrlTree(['/403']));
-                observer.complete();
-            }
-        })
+        // Get permission of user to check
+        // authApiService.getUserPermission().subscribe((data) => {
+        //     PolicyService.policies = data;
+        //     if (policyService.can(route.data['policy'])) {
+        //         observer.next(true);
+        //         observer.complete();
+        //     } else {
+        //         observer.next(router.createUrlTree(['/403']));
+        //         observer.complete();
+        //     }
+        // })
+        observer.next(true);
+        observer.complete();
     });
   }

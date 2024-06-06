@@ -12,12 +12,14 @@ import { IApiOption } from '../models/api-option.model';
     providedIn: 'root'
 })
 export class ApiService {
-    private apiHost = AppConstant.API_HOST;
-    private apiUrlPrefix = AppConstant.API_URL_PREFIX;
-    private requestTimeout = AppConstant.DEFAULT_SETTINGS.REQUEST_TIMEOUT;
+    private apiHost = AppConstant.API_HOST; // api url server
+    private apiUrlPrefix = AppConstant.API_URL_PREFIX; // prefix url
+    private requestTimeout = AppConstant.DEFAULT_SETTINGS.REQUEST_TIMEOUT; // Set timout khi request api
     headers: HttpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
     });
+
+    // Set default option 
     private defaultOptions: IApiOption = {
         loader: true,
         pretreatmentResponse: true,
@@ -33,6 +35,7 @@ export class ApiService {
         this._globalService.storage
             .watch(AppConstant.GLOBAL_STORAGE.TOKEN)
             .subscribe(token => {
+                // Lấy token của user đăng nhập gắn vào header để request api xuống BE
                 this.headers = this.headers.set('Authorization', `Bearer ${token}`);
                 if (this.defaultOptions.requestOptions) {
                     this.defaultOptions.requestOptions.headers = this.headers
@@ -45,6 +48,7 @@ export class ApiService {
         return data;
     }
 
+    // Xử lý nếu data có value là dạng Moment thì sẽ convert về date string
     static formatMomentObject(data: any) {
         if (data && typeof data === 'object') {
             Object.keys(data).forEach(key => {
@@ -60,6 +64,7 @@ export class ApiService {
         return data;
     }
 
+    // Merge options truyền vào với default options
     static normalizeOption(options: IApiOption, optionsMatching: IApiOption): IApiOption {
         if (!optionsMatching) {
             return options;
@@ -78,6 +83,19 @@ export class ApiService {
         return results;
     }
 
+    /* 
+        Xử lý path url 
+        Ví dụ có api update là: ‘item/:id' 
+        update(data: { id:1, name: ‘abc' }) {
+            const url = ‘item/’ + data.id // Cách 1
+            const url = ‘item/:id' // Cách 2
+
+            return this._apiService.get(url, data);
+        }
+        Nếu truyền theo cách 2 thì hàm createAPIUrl() sẽ kiếm id trong data để convert 
+        url từ ‘item/:id' sang ‘item/1’ và sau đó remove key id
+        => Kết quả:  url = ‘item/1’, data = { name: ‘abc' } 
+    */
     createAPIURL(url: string, params: HttpParams): string {
         const paths = url.split('/');
         paths.forEach((path, i) => {
@@ -92,7 +110,11 @@ export class ApiService {
     }
 
     get(url: string, params?: HttpParams | any, options?: IApiOption): Observable<any> {
+        // Xử lý data
         params = ApiService.pretreatmentDataRequest(params, options);
+        //////////
+
+        // Merge options với default options
         const defaultRequestOptions = {
             ...this.defaultOptions,
             ...{
@@ -103,13 +125,35 @@ export class ApiService {
             }
         };
         options = ApiService.normalizeOption(defaultRequestOptions, options);
+        ///////
+
+        // Xử lý path url
         const fullUrl = this.createAPIURL(url, params);
+        ////////
+
+        // Nếu loader là true thì sẽ hiển thị loader mỗi lần request api 
         if (options.loader) {
+            // bật loader
             this._globalService.loader.loading();
+            ////////
             return this._httpClient.get(fullUrl, options.requestOptions).pipe(
                 timeout(this.requestTimeout),
-                map(response => options.pretreatmentResponse ? response['data'] : response),
+                map(response => {
+                    /*
+                        Xử lý data trả về 
+                        Ví dụ 
+                            response = {
+                                statusCode: 200,
+                                data: {
+                                    id: 1,
+                                    name: 'abc'
+                                }
+                            }
+                    */
+                    return options.pretreatmentResponse ? response['data'] : response
+                }),
                 finalize(() => {
+                    // tắt loader
                     this._globalService.loader.loaded();
                 })
             );
