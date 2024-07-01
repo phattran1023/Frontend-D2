@@ -5,8 +5,8 @@
   align-items: flex-start;
   gap: 20px;
   border-radius: 16px;
-  background: var(--Views-Regular, linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%), rgba(214, 214, 214, 0.45));
-  background-blend-mode: luminosity, color-burn;
+  background: linear-gradient(0deg, rgba(80, 87, 151, 0) 0%, rgba(80, 87, 151, 0) 100%),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .frame-2 {
@@ -45,5 +45,19 @@
 
 .mat-column-requested_date {
   text-align: center;
+}
+
+.a {
+  padding:10px;
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  column-gap: calc((1401.980px - 4 * 300px) / 3);
+  row-gap: 20px;
+}
+
+.b {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: calc((1401.980px - 4 * 300px) / 3);  grid-column: span 4;
 }
 
