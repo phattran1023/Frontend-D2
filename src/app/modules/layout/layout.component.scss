@@ -1,28 +1,29 @@
 @import 'layout-variable';
 
 .app-layout {
-    position: relative;
-    background-color: #f3f3f3;
-    height: 100%;
-    display: flex;
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+  position: relative;
+  background-image: url('../../../assets/images/cf1358fc-7a49-4ca2-a9b7-31471a0525bf 1.png');
+  background-attachment: fixed;
+  height: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 
-    /* Base styles for components that load as a route */
-    router-outlet {
-        + * {
-        position: relative;
-        display: flex;
-        flex: 1 1 auto;
-        width: 100%;
-        max-height: inherit;
-        }
+  /* Base styles for components that load as a route */
+  router-outlet {
+    + * {
+      position: relative;
+      display: flex;
+      flex: 1 1 auto;
+      width: 100%;
+      max-height: inherit;
     }
+  }
 
-    &-header {
-        height: $layout-header-height;
-        max-height: $layout-header-height;
-    }
+  &-header {
+    height: $layout-header-height;
+    max-height: $layout-header-height;
+  }
 }

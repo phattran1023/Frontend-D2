@@ -1,0 +1,107 @@
+<div class="inset">
+  <!--  Total item-->
+  <div class="grid grid-cols-2 grid-rows-1 w-[100%] gap-5">
+    <div class="w-[100%] h-[143px] pgit remote add origin git@github.com:phattran1023/Frontend-D2.git-2.5 grid grid-cols-2 grid-rows-1">
+      <dashboard-summary-info title="Total Items" value="1111" unit="items"></dashboard-summary-info>
+      <dashboard-summary-info class="flex justify-end" title="Low Stock" value="1" unit="items"></dashboard-summary-info>
+    </div>
+    <div class="w-[100%] h-[143px] p-2.5 grid grid-cols-2 grid-rows-1">
+      <dashboard-summary-info title="Out of Stock" value="1111" unit="items"></dashboard-summary-info>
+      <dashboard-summary-info class="flex justify-end" title="Value of Stock" value="$ 222" unit=""></dashboard-summary-info>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 grid-rows-1 w-[100%] px-2.5 justify-between">
+    <app-request-info class="sm:mr-5" title="Material Request"
+                      number_of_tickets="3"></app-request-info>
+    <app-request-info class="sm:ml-5" title="Purchase Request"
+                      number_of_tickets="666"></app-request-info>
+  </div>
+  <!--  table-->
+  <div class="frame-5">
+    <div class="w-[100%] relative bg-white rounded-lg border border-zinc-200 px-4 py-3">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-slate-800 text-[21px] font-semibold font-['Poppins'] leading-7">
+            Last Material Requests
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="overflow-y-auto h-72">
+          <table class="material-request-table" mat-table [dataSource]="dataSource">
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> CODE</th>
+              <td mat-cell *matCellDef="let request">
+                <div class="py-6">
+                  <div class="w-64 text-zinc-900 text-sm font-normal font-['Poppins'] leading-snug">
+                    Project: {{ request.project }}
+                  </div>
+                  <div class="w-64 text-gray-600 text-xs font-normal font-['Poppins'] leading-tight">
+                    Code: {{ request.id }}
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+            <!-- Requested by -->
+            <ng-container matColumnDef="requested_by">
+              <th mat-header-cell *matHeaderCellDef> Requested By</th>
+              <td mat-cell *matCellDef="let request">
+                <div class="w-64 text-zinc-900 text-sm font-normal font-['Poppins'] leading-snug">
+                  {{ request.requested_by }}
+                </div>
+                <div class="w-64 text-gray-600 text-xs font-normal font-['Poppins'] leading-tight">
+                  {{ request.role }}
+                </div>
+              </td>
+            </ng-container>
+
+            <!-- Materials Column -->
+            <ng-container matColumnDef="materials">
+              <th mat-header-cell *matHeaderCellDef> Materials</th>
+              <td mat-cell *matCellDef="let request">
+                <div class="w-64 text-zinc-900 text-sm font-normal font-['Poppins'] leading-snug">
+                  {{ request.materials }} items
+                </div>
+                <div class="w-64 text-gray-600 text-xs font-normal font-['Poppins'] leading-tight">
+                  Stock: {{ request.stock }}
+                </div>
+              </td>
+            </ng-container>
+
+            <!-- Requested Day Column -->
+            <ng-container matColumnDef="requested_date">
+              <th mat-header-cell *matHeaderCellDef> Requested Day</th>
+              <td mat-cell *matCellDef="let request"> {{ request.requested_date | date:'MMM dd, y' }}</td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status</th>
+              <td mat-cell *matCellDef="let request">
+                <app-badge-status status="{{request.status}}"></app-badge-status>
+              </td>
+            </ng-container>
+            <!-- Menu Column -->
+            <ng-container matColumnDef="menu">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let request">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Action 1</button>
+                  <button mat-menu-item>Action 2</button>
+                </mat-menu>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>

@@ -254,7 +254,7 @@ export class VerticalNavigationComponent implements OnInit,OnChanges ,AfterViewI
                  // If the active item exists, scroll it into view
                  if ( activeItem )
                  {
-                     activeItem.scrollIntoView();
+                     // activeItem.scrollIntoView();
                  }
              }
          });
