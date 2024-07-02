@@ -1,29 +1,82 @@
-@import 'layout-variable';
-
-.app-layout {
-  position: relative;
-  background-image: url('../../../assets/images/cf1358fc-7a49-4ca2-a9b7-31471a0525bf 1.png');
-  background-attachment: fixed;
+.main {
+  background-image: url("../../../assets/images/cf1358fc-7a49-4ca2-a9b7-31471a0525bf 1.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
   height: 100%;
   display: flex;
-  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.WindowAndWindowControls {
   width: 100%;
-  max-width: 100%;
-  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  display: inline-flex;
+  border-radius: 46px !important;
+}
 
-  /* Base styles for components that load as a route */
-  router-outlet {
-    + * {
-      position: relative;
-      display: flex;
-      flex: 1 1 auto;
-      width: 100%;
-      max-height: inherit;
-    }
-  }
+.Window {
+  align-self: stretch;
+  height: 100%;
+  background: rgba(0, 0, 115, 0.01);
+  border-radius: 46px;
+  overflow: hidden;
+  border: 1px rgba(255, 255, 255, 0.2) solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(100px);
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+  margin: 50px 50px 0 50px
+}
 
-  &-header {
-    height: $layout-header-height;
-    max-height: $layout-header-height;
-  }
+.Sidebar {
+  width: 320px;
+  align-self: stretch;
+  //background: linear-gradient(0deg, rgba(214, 214, 214, 0.45) 0%, rgba(214, 214, 214, 0.45) 100%),
+  //linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+  background: linear-gradient(0deg, rgba(80, 87, 151, 0) 0%, rgba(80, 87, 151, 0) 100%),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+.ContentArea {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+}
+
+.WindowControls {
+  width: 100%;
+  height: 37px;
+  padding-top: 6px;
+  padding-bottom: 3px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.Grabber {
+  border-color: rgba(255, 255, 255, 0.5);
+  width: 136px;
+  height: 10px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.50);
+  border-radius: 100px;
+  backdrop-filter: blur(20px)
+}
+.app-content{
+  width: 100%;
+  height: 100%;
 }

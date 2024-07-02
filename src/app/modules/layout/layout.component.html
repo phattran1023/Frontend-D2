@@ -1,54 +1,16 @@
-<section class="app-layout">
-    <div class="flex flex-col flex-auto relative">
-        <div class="sticky z-10 top-0 border-b flex flex-col w-full">
-            <div class="app-layout-header flex flex-row items-center bg-white justify-between">
-                <div class="flex flex-row items-center gap-4">
-                    <div class="h-11 min-w-14 border-r flex flex-row justify-center items-center">
-                        <button
-                            mat-icon-button
-                            (click)="toggleNavigation('navigation')"
-                        >
-                            <mat-icon>menu</mat-icon>
-                        </button>
-                    </div>
-
-                </div>
-
-                <div class="flex flex-row items-center gap-6 pr-4">
-                    <div>{{user?.name}}</div>
-                    <div>
-                        <button mat-icon-button [matMenuTriggerFor]="menu">
-                            <mat-icon>settings</mat-icon>
-                          </button>
-                          <mat-menu #menu="matMenu">
-                            <button mat-menu-item routerLink="/auth/logout">
-                              <span>Logout</span>
-                            </button>
-                          </mat-menu>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex z-0 flex-row flex-auto">
-            <!-- Navigation -->
-             <vertical-navigation
-                *ngIf="navigation"
-                [mode]="'side'"
-                [name]="'navigation'"
-                [navigation]="navigation"
-                [autoCollapse]="false"
-                [opened]="true"
-            >
-            </vertical-navigation>
-            <!-- Content -->
-            <div class="flex flex-col flex-auto">
-                <div class="flex flex-col flex-auto p-4">
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
-        </div>
+<div class="main">
+  <div class="WindowAndWindowControls">
+    <div class="Window">
+      <div class="Sidebar">
+        <app-slide-bar></app-slide-bar>
+      </div>
+      <div class="ContentArea">
+        <app-content class="app-content"></app-content>
+      </div>
     </div>
-</section>
-
+    <div class="WindowControls">
+      <button class="Grabber"></button>
+    </div>
+  </div>
+</div>
 

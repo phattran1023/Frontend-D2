@@ -1,0 +1,45 @@
+.NavigationBar {
+  width: 100%;
+  height: 92px;
+  justify-content: flex-end;
+  align-items: center;
+  display: inline-flex;
+  border-radius: 46px;
+}
+
+.Title {
+  padding-left: 24px;
+  flex: 1 1 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 29px;
+  font-family: Poppins;
+  font-weight: 700;
+  word-wrap: break-word
+}
+
+.ButtonSymbol {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
+  linear-gradient(0deg, rgba(94, 94, 94, 0.1) 0%, rgba(94, 94, 94, 0.1) 100%);
+  border-radius: 50%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+mat-icon {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.96);
+  line-height: 22px;
+}
+
+.Buttons {
+  width: 104px;
+  margin-right: 24px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  display: flex;
+}

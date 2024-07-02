@@ -1,3 +1,6 @@
+:host {
+  display: contents;
+}
 .inset {
   display: flex;
   padding: 20px;
@@ -48,16 +51,17 @@
 }
 
 .a {
+  width: 100%;
   padding:10px;
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  column-gap: calc((1401.980px - 4 * 300px) / 3);
+  column-gap: calc((100% - 4 * 300px) / 3);
   row-gap: 20px;
 }
 
 .b {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: calc((1401.980px - 4 * 300px) / 3);  grid-column: span 4;
+  column-gap: calc((100% - 4 * 300px) / 3);  grid-column: span 4;
 }
 

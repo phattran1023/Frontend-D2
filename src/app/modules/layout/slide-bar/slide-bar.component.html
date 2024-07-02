@@ -1,0 +1,30 @@
+<div class="main_slide_bar">
+  <div class="Header">
+    <h1 class="Title">Slide Bar</h1>
+  </div>
+  @for (item of menuItems; track item) {
+    <div class="Frame">
+      <span class="Accessory">
+        <span class="Symbol"></span>
+      </span>
+      <a href="/layout" class="TitleSub"><span class="Symbol">-</span>{{ item }}</a>
+    </div>
+  }
+
+  <div class="SectionHeader">
+    <p class="Title2">Section Heading</p>
+    <span class="Disclosure">
+         <mat-icon>expand_more</mat-icon>
+      </span>
+  </div>
+  @for (item of subMenuItems; track item) {
+    <div class="Frame">
+      <span class="Accessory">
+        <span class="Symbol"></span>
+      </span>
+      <a href="/layout" class="TitleSub"><span class="Symbol">-</span>{{ item }}</a>
+    </div>
+  }
+  <app-expansion-panel [ExpansionPanelItem]="ExpansionPanelItem"></app-expansion-panel>
+</div>
+

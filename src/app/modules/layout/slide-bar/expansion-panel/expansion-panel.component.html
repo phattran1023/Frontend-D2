@@ -1,0 +1,17 @@
+<mat-accordion style="background-color: transparent !important;">
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" style="background-color: transparent !important;">
+    <mat-expansion-panel-header class="SectionHeader">
+      <mat-panel-title class="Title2">{{Items.title}}</mat-panel-title>
+    </mat-expansion-panel-header>
+    @for (item of Items.children; track item) {
+      <div class="Frame">
+      <span class="Accessory">
+        <span class="Symbol">
+          <mat-icon>{{item.icon}}</mat-icon>
+        </span>
+      </span>
+        <a href="{{ item.href }}" class="TitleSub"><span class="Symbol">-</span>{{ item.title }}</a>
+      </div>
+    }
+  </mat-expansion-panel>
+</mat-accordion>

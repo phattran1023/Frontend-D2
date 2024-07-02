@@ -1,0 +1,106 @@
+.main_slide_bar{
+  max-width: 320px;
+}
+.Header {
+  height: 92px;
+  padding-left: 28px;
+  padding-right: 20px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.Title {
+  flex: 1 1 0;
+  color: white;
+  font-size: 29px;
+  font-family: Poppins;
+  font-weight: 700;
+  word-wrap: break-word
+}
+
+.TitleSecond {
+  width: 240px;
+  color: white;
+  font-size: 20px;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 25px;
+  word-wrap: break-word
+}
+
+
+.Frame {
+  width: 296px;
+  height: 56px;
+  padding-left: 8px;
+  padding-right: 19px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  display: inline-flex
+}
+
+.Accessory {
+  width: 32px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  display: flex
+}
+
+.Symbol {
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  color: #0A84FF;
+  font-size: 17px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 22px;
+  word-wrap: break-word
+}
+
+.TitleSub {
+  width: 229px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 17px;
+  font-family: Poppins;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 19px;
+  word-wrap: break-word
+}
+
+.SectionHeader {
+  width: 272px;
+  height: 66px;
+  padding-top: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex
+}
+
+.Title2 {
+  flex: 1 1 0;
+  color: white;
+  font-size: 20px;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 25px;
+  word-wrap: break-word
+}
+
+.Disclosure {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 17px;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 22px;
+  word-wrap: break-word
+}
