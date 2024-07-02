@@ -23,12 +23,12 @@ import {MatIcon} from "@angular/material/icon";
 export class ExpansionPanelComponent implements OnInit {
   readonly panelOpenState = signal(false);
   Items:ExpansionPanelItem;
-  @Input() ExpansionPanelItem!: ExpansionPanelItem;
+  @Input() expansionPanelItem!: ExpansionPanelItem;
   constructor() {
-    this.Items = this.ExpansionPanelItem;
+    this.Items = this.expansionPanelItem;
   }
   ngOnInit() {
-    this.Items = this.ExpansionPanelItem;
+    this.Items = this.expansionPanelItem;
   }
 }
 

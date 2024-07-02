@@ -71,6 +71,18 @@
   line-height: 19px;
   word-wrap: break-word
 }
+.Counter {
+  text-align: right;
+  color: white;
+  font-size: 17px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 19px;
+  word-wrap: break-word
+}
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}
 
 .SectionHeader {
   width: 272px;
@@ -103,4 +115,25 @@
   font-weight: 600;
   line-height: 22px;
   word-wrap: break-word
+}
+.avatar_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 22px;
+  word-wrap: break-word;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.avatar_icon span {
+  margin: 0 auto;
 }

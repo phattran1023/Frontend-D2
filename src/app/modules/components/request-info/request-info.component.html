@@ -8,10 +8,14 @@
         <div class="text-slate-800 text-[21px] font-semibold font-['Poppins'] leading-7">{{ number_of_tickets }}</div>
       </div>
       <div class="h-6 px-2 py-0.5 rounded justify-start items-center flex">
-        <div class="w-[66px] text-slate-400 text-sm font-semibold font-['Poppins'] leading-tight">Tickets</div>
+        <div class="w-[66px] text-slate-400 text-sm font-semibold font-['Poppins'] leading-tight">
+          <div class="w-16 h-6 px-2 py-0.5 bg-white rounded justify-start items-center inline-flex">
+            <div class="w-[66px] text-slate-400 text-sm font-semibold font-['Poppins'] leading-tight">Tickets</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="h-9 px-4 bg-blue-400 rounded justify-start items-center gap-1 inline-flex">
+    <div matRipple class="h-9 px-4 bg-blue-400 rounded justify-start items-center gap-1 inline-flex cursor-pointer">
       <app-button buttonText="Detail"></app-button>
     </div>
   </div>

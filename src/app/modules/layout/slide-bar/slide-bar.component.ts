@@ -31,7 +31,7 @@ export class SlideBarComponent {
   readonly panelOpenState = signal(false);
   menuItems:string[] = ["Home", "Product", "Category"];
   subMenuItems:string[] = ["Sub Menu 1", "Sub Menu 2", "Sub Menu 3"];
-  ExpansionPanelItem:ExpansionPanelItem = {
+  expansionPanelItem:ExpansionPanelItem = {
     title: 'Menu Title',
     href: 'http://localhost:4200/layout',
     icon: 'home',

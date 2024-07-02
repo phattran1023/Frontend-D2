@@ -1,6 +1,7 @@
-.main_slide_bar{
+.main_slide_bar {
   max-width: 320px;
 }
+
 .Header {
   height: 92px;
   padding-left: 28px;
@@ -61,6 +62,16 @@
   word-wrap: break-word
 }
 
+.Counter {
+  text-align: right;
+  color: white;
+  font-size: 17px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 19px;
+  word-wrap: break-word
+}
+
 .TitleSub {
   width: 229px;
   color: rgba(255, 255, 255, 0.96);
@@ -80,7 +91,7 @@
   padding-right: 24px;
   justify-content: center;
   align-items: center;
-  display: inline-flex
+  display: inline-flex;
 }
 
 .Title2 {
@@ -90,7 +101,8 @@
   font-family: Poppins;
   font-weight: 600;
   line-height: 25px;
-  word-wrap: break-word
+  word-wrap: break-word;
+  margin-bottom: 0;
 }
 
 .Disclosure {
@@ -103,4 +115,26 @@
   font-weight: 600;
   line-height: 22px;
   word-wrap: break-word
+}
+
+.avatar_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 22px;
+  word-wrap: break-word;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.avatar_icon span {
+  margin: 0 auto;
 }

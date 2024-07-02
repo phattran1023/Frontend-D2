@@ -2,19 +2,33 @@
   <div class="Header">
     <h1 class="Title">Slide Bar</h1>
   </div>
+  <div class="SectionHeader">
+    <mat-icon class="avatar_icon">
+      D
+    </mat-icon>
+    <p class="Title2">Dash Board</p>
+    <span class="Disclosure">
+<!--         <mat-icon>expand_more</mat-icon>-->
+    </span>
+  </div>
   @for (item of menuItems; track item) {
     <div class="Frame">
       <span class="Accessory">
         <span class="Symbol"></span>
       </span>
-      <a href="/layout" class="TitleSub"><span class="Symbol">-</span>{{ item }}</a>
+      <a href="/layout" class="TitleSub"><span class="Symbol"></span>{{ item }}</a>
+      <div class="Counter">42</div>
     </div>
   }
 
+
   <div class="SectionHeader">
-    <p class="Title2">Section Heading</p>
+    <mat-icon class="avatar_icon">
+      S
+    </mat-icon>
+    <p class="Title2">Section Heading 2</p>
     <span class="Disclosure">
-         <mat-icon>expand_more</mat-icon>
+<!--         <mat-icon>expand_more</mat-icon>-->
       </span>
   </div>
   @for (item of subMenuItems; track item) {
@@ -22,9 +36,10 @@
       <span class="Accessory">
         <span class="Symbol"></span>
       </span>
-      <a href="/layout" class="TitleSub"><span class="Symbol">-</span>{{ item }}</a>
+      <a href="/layout" class="TitleSub"><span class="Symbol"></span>{{ item }}</a>
+      <div class="Counter">42</div>
     </div>
   }
-  <app-expansion-panel [ExpansionPanelItem]="ExpansionPanelItem"></app-expansion-panel>
+  <app-expansion-panel [expansionPanelItem]="expansionPanelItem"></app-expansion-panel>
 </div>
 
